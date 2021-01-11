@@ -15,4 +15,4 @@ spec:
       - name: my-lovely-pi
         image: quay.io/manue/hellopy:latest
         ports:
-        - containerPort: 5000
+        - containerPort: 8080

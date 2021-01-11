@@ -7,5 +7,5 @@ COPY . /app
 
 RUN pip3 --no-cache-dir install -r requirements.txt
 
-EXPOSE 5000
-CMD ["/app/hello.py"]
+EXPOSE 8080
+CMD ["/app/app.py"]

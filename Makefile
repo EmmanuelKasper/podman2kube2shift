@@ -1,7 +1,7 @@
 image:
 	buildah bud --tag hellopy
 run:
-	podman run --name hellopy --publish 5000:5000 localhost/hellopy:latest
+	podman run --name hellopy --publish 8080:8080 localhost/hellopy:latest
 clean:
 	-podman stop hellopy
 	-podman rm hellopy
