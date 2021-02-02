@@ -18,8 +18,14 @@ spec:
           httpGet:
             path: /healthy
             port: 8080
-          initialDelaySeconds: 5
+          initialDelaySeconds: 3
           timeoutSeconds: 1
+          periodSeconds: 5
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 3
           periodSeconds: 5
         image: quay.io/manue/hellopy:2
         ports:
