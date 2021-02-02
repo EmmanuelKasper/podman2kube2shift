@@ -1,16 +1,18 @@
+VERSION = 2
+
 image:
-	buildah bud --tag hellopy
+	buildah bud --tag hellopy:$(VERSION)
 run:
-	podman run --name hellopy --publish 8080:8080 localhost/hellopy:latest
+	podman run --name hellopy --publish 8080:8080 localhost/hellopy:$(VERSION)
 clean:
 	-podman stop hellopy
 	-podman rm hellopy
-	-podman rmi hellopy:latest
+	-podman rmi hellopy:$(VERSION)
 
 registry:
-	podman tag localhost/hellopy:latest quay.io/manue/hellopy:latest
+	podman tag localhost/hellopy:$(VERSION) quay.io/manue/hellopy:$(VERSION)
 	podman login quay.io 
-	podman push quay.io/manue/hellopy:latest
+	podman push quay.io/manue/hellopy:$(VERSION)
 
 kube-deploy:
 	kubectl apply -f hellokube-deployment.yaml

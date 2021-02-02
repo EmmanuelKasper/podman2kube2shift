@@ -14,6 +14,13 @@ spec:
     spec:
       containers:
       - name: my-lovely-pi
-        image: quay.io/manue/hellopy:latest
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+          initialDelaySeconds: 5
+          timeoutSeconds: 1
+          periodSeconds: 5
+        image: quay.io/manue/hellopy:2
         ports:
         - containerPort: 8080
