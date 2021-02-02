@@ -9,6 +9,8 @@ spec:
       app: hellokube
   template:
     metadata:
+      annotations:
+        kubernetes.io/change-cause: "update to container V2, with liveness probe"
       labels:
         app: hellokube
     spec:
