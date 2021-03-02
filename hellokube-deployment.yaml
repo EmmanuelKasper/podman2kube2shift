@@ -1,4 +1,4 @@
-apiVersion: apps/v1
+apiVersion: v1
 kind: Deployment
 metadata:
   name: hellokube
@@ -10,12 +10,13 @@ spec:
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "update to container V2, with liveness probe"
+        kubernetes.io/change-cause: "update to container V3, with requests and limits"
       labels:
         app: hellokube
     spec:
       containers:
       - name: my-lovely-pi
+        image: quay.io/manue/hellopy:2
         livenessProbe:
           httpGet:
             path: /healthy
@@ -29,6 +30,23 @@ spec:
             port: 8080
           initialDelaySeconds: 3
           periodSeconds: 5
-        image: quay.io/manue/hellopy:2
+        resources:
+          requests:
+            cpu: "500m"
+            memory: "128Mi"
+          limits:
+            cpu: "1500m"
+            memory: "512Mi"
         ports:
         - containerPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hellokube
+spec:
+  selector:
+    app: hellokube
+  ports:
+  - port: 8080
+    targetPort: 8080
