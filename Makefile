@@ -15,7 +15,7 @@ registry:
 	podman push quay.io/manue/hellopy:$(VERSION)
 
 kube-deploy-svc:
-	kubectl apply -f hellokube-deployment-svc.yaml
+	kubectl apply -f hellokube-deploy-svc.yaml
 
 shift-service:
 	oc new-app --strategy=source https://github.com/EmmanuelKasper/podman2kube2shift.git
