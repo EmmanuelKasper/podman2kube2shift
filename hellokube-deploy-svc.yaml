@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "update to container V3, with requests and limits"
+        kubernetes.io/change-cause: "update to container V4, with volumeMount"
       labels:
         app: hellokube
     spec:
@@ -39,11 +39,11 @@ spec:
             memory: "512Mi"
         ports:
         - containerPort: 8080
-        volumeMount:
-        - name: oida-my-container-storage
+        volumeMounts:
+        - name: oida-my-volume-storage
           mountPath: /var/oida-my-container-storage
       volumes:
-      - name: oida-my-pod-storage
+      - name: oida-my-volume-storage
         persistentVolumeClaim:
           claimName: give-me-a-persistent-volume
 ---
