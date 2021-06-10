@@ -14,7 +14,9 @@ registry:
 	podman login quay.io 
 	podman push quay.io/manue/hellopy:$(VERSION)
 
-kube-deploy-svc:
+deploy:
+	oc new-project hello
+	oc project hello
 	kubectl apply -f hellokube-deploy-svc.yaml
 
 shift-service:
