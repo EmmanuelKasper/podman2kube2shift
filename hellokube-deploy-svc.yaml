@@ -50,17 +50,3 @@ spec:
   ports:
   - port: 8080
     targetPort: 8080
----
-apiVersion: route.openshift.io/v1
-kind: Route
-metadata:
-  creationTimestamp: null
-  name: hellokube
-spec:
-  port:
-    targetPort: 8080
-  to:
-    kind: ""
-    name: hellokube
-    weight: null
-status: {}
