@@ -10,13 +10,13 @@ spec:
   template:
     metadata:
       annotations:
-        kubernetes.io/change-cause: "update to container V3, with requests and limits"
+        kubernetes.io/change-cause: "use image v3"
       labels:
         app: hellokube
     spec:
       containers:
       - name: my-lovely-pi
-        image: quay.io/manue/hellopy:2
+        image: quay.io/manue/hellopy:3
         livenessProbe:
           httpGet:
             path: /healthy
