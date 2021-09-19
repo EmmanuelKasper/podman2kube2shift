@@ -1,4 +1,4 @@
-FROM registry.access.redhat.com/ubi8/ubi:8.3
+FROM registry.access.redhat.com/ubi8/ubi:latest
 RUN yum -y module enable python36 \
   && yum -y install python36 \
   && yum clean all
