@@ -1,4 +1,4 @@
-VERSION = 2
+VERSION = 3
 
 image:
 	buildah bud --tag hellopy:$(VERSION)
