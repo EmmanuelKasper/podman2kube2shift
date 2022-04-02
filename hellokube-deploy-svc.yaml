@@ -32,10 +32,10 @@ spec:
             periodSeconds: 5
           resources:
             requests:
-              cpu: "100m"
-              memory: "128Mi"
+              cpu: "50m"
+              memory: "32Mi"
             limits:
-              cpu: "2000m"
+              cpu: "1000m"
               memory: "512Mi"
           ports:
             - containerPort: 8080
