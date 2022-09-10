@@ -17,7 +17,7 @@ registry:
 deploy:
 	-oc new-project hello
 	oc project hello
-	kubectl apply -f hellokube-deploy-svc.yaml
+	kubectl apply -f hellokube-deploy.yaml
 
 shift-service:
 	oc new-app --strategy=source https://github.com/EmmanuelKasper/podman2kube2shift.git
