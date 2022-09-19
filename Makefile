@@ -19,6 +19,10 @@ deploy:
 	oc project hello
 	kubectl apply -f hellokube-deploy.yaml
 
+service:
+	oc project hello
+	oc create service nodeport hellokube --node-port=31000 --tcp=80:8080
+
 shift-service:
 	oc new-app --strategy=source https://github.com/EmmanuelKasper/podman2kube2shift.git
 
