@@ -17,7 +17,7 @@ registry:
 deploy:
 	-oc new-project hello
 	oc project hello
-	kubectl apply -f hellokube-deploy.yaml
+	oc apply -f hellokube-deploy.yaml
 
 service:
 	oc project hello
