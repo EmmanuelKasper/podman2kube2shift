@@ -4,7 +4,7 @@ RUN yum -y module enable python36 \
   && yum clean all
 RUN useradd --no-log-init --key UID_MIN=50000 --user-group hello \
   && mkdir /app && chown hello:hello /app
-USER hello
+USER 50000
 WORKDIR /app
 COPY . /app
 
