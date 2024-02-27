@@ -15,9 +15,8 @@ registry:
 	podman push quay.io/manue/hellopy:$(VERSION)
 
 deploy:
-	-oc new-project hello
-	oc project hello
-	oc apply -f hellokube-deploy.yaml
+	oc create -f k8s-manifests/ns.yaml
+	oc create -f k8s-manifests/hellokube-deploy.yaml
 
 service:
 	oc project hello
