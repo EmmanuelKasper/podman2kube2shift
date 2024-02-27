@@ -14,13 +14,12 @@ registry:
 	podman login quay.io 
 	podman push quay.io/manue/hellopy:$(VERSION)
 
-deploy:
+deployment:
 	oc create -f k8s-manifests/ns.yaml
-	oc create -f k8s-manifests/hellokube-deploy.yaml
+	oc create -f k8s-manifests/deploy.yaml
 
-service:
-	oc project hello
-	oc create service nodeport hellokube --node-port=31000 --tcp=80:8080
+nodeport-service:
+	oc create -f k8s-manifests/svc-nodeport.yaml
 
 shift-service:
 	oc new-app --strategy=source https://github.com/EmmanuelKasper/podman2kube2shift.git
