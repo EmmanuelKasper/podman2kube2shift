@@ -27,6 +27,11 @@ shift-service:
 shift-update:
 	oc start-build podman2kube2shift
 
+gitops:
+	-oc new-project hello
+	oc label namespace hello argocd.argoproj.io/managed-by=openshift-gitops
+	oc create -f application.yaml
+
 clean-kube:
 	kubectl delete deployment/hellokube
 

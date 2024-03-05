@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello
+  namespace: openshift-gitops
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/EmmanuelKasper/podman2kube2shift.git
+    targetRevision: HEAD
+    path: k8s-manifests/
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: hello
+  syncPolicy:
+    automated: {}
