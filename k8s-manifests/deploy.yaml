@@ -37,7 +37,7 @@ spec:
               memory: "32Mi"
               ephemeral-storage: "10Mi"
             limits:
-              ephemeral-storage: "200Mi"
+              ephemeral-storage: "200Mi" # fair approach, based disk free  95GB/ 500 pods  =190
               cpu: "9000m"
               memory: "512Mi"
           ports:
