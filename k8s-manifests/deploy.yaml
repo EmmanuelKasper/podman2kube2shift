@@ -34,12 +34,12 @@ spec:
           resources:
             requests:
               cpu: "50m"
-              memory: "32Mi"
               ephemeral-storage: "10Mi"
+              memory: "32Mi"
             limits:
-              ephemeral-storage: "200Mi" # fair approach, based disk free  95GB/ 500 pods  =190
               cpu: "9000m"
-              memory: "512Mi"
+              ephemeral-storage: "200Mi" # fair approach, based disk free  95GB/ 500 pods  =190
+              memory: "128Mi"
           ports:
             - containerPort: 8080
           securityContext:
