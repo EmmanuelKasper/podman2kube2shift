@@ -35,7 +35,9 @@ spec:
             requests:
               cpu: "50m"
               memory: "32Mi"
+              ephemeral-storage: "10Mi"
             limits:
+              ephemeral-storage: "200Mi"
               cpu: "9000m"
               memory: "512Mi"
           ports:
