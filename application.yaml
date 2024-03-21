@@ -2,9 +2,10 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: hello
+  # choice of namespace is important so that ArgoCD can read the Application Custom Resource
   namespace: openshift-gitops
   finalizers:
-    # The default behaviour is foreground cascading deletion
+    # Cascade delete
     - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
