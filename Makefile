@@ -30,7 +30,7 @@ shift-update:
 gitops-create:
 	-oc new-project hello
 	oc label namespace hello argocd.argoproj.io/managed-by=openshift-gitops
-	oc create -f application.yaml
+	oc apply -f application.yaml
 
 clean-gitops:
 	oc delete -f application.yaml
