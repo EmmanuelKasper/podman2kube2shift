@@ -15,7 +15,7 @@ registry:
 	podman push quay.io/manue/hellopy:$(VERSION)
 
 deployment:
-	oc create -f k8s-manifests/ns.yaml
+	- oc new-project hello
 	oc create -f k8s-manifests/deploy.yaml
 
 nodeport-service:
