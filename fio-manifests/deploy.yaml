@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: fio
+  name: fio
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fio
+  template:
+    metadata:
+      labels:
+        app: fio
+    spec:
+      containers:
+      - image: quay.io/openshift-scale/etcd-perf
+        name: etcd-perf
+        volumeMounts:
+          - mountPath: /var/lib/etcd
+            name: pseudo-etcd-storage
+      volumes:
+        - name: pseudo-etcd-storage 
+          persistentVolumeClaim:
+            claimName: storage-to-test
+
