@@ -11,7 +11,7 @@ spec:
   project: default
   source:
     repoURL: https://github.com/EmmanuelKasper/podman2kube2shift.git
-    path: k8s-manifests
+    path: hello-manifests
   destination:
     server: https://kubernetes.default.svc
     namespace: hello
