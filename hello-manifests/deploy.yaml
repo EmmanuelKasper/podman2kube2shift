@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - name: hellopy
-          image: quay.io/manue/hellopy:5
+          image: quay.io/manue/hellopy:6
           livenessProbe:
             httpGet:
               path: /healthy
