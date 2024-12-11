@@ -1,5 +1,7 @@
 VERSION = 6
 
+default: gitops-create
+
 image:
 	buildah bud --tag hellopy:$(VERSION)
 run:
@@ -30,10 +32,10 @@ shift-update:
 gitops-create:
 	-oc new-project hello
 	oc label namespace hello argocd.argoproj.io/managed-by=openshift-gitops
-	oc apply -f application.yaml
+	oc apply -f hello-application.yml
 
 clean-gitops:
-	oc delete -f application.yaml
+	oc delete -f hello-application.yml
 
 clean-kube:
 	kubectl delete deployment/hellokube
